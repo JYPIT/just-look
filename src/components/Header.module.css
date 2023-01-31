@@ -1,0 +1,42 @@
+.header {
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--header-color);
+  border-bottom: 1px solid black;
+  height: 5rem;
+  padding: 0 1rem;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: black;
+  transition: color 0.5s transform 2s;
+}
+.logo:hover {
+  color: red;
+
+  transform: rotate(180deg);
+}
+
+.search input,
+button {
+  height: 2rem;
+  outline: none;
+  border: none;
+}
+.search input {
+  width: 20rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.login {
+  cursor: pointer;
+}

@@ -1,0 +1,24 @@
+.banner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20rem;
+  background-color: whitesmoke;
+  font-size: large;
+  margin-bottom: 2rem;
+  background-image: cover;
+  opacity: 0.9;
+}
+
+.banner img {
+  width: 33.333%;
+  height: 100%;
+}
+
+.title {
+  position: absolute;
+  font-size: xx-large;
+  font-weight: 600;
+}

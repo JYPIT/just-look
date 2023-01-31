@@ -1,0 +1,46 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "name": "핑크 후드",
+      "price": 39000,
+      "image": "http://localhost:3000/productsImage/1.webp"
+    },
+    {
+      "id": "2",
+      "name": "블랙 후드",
+      "price": 39000,
+      "image": "http://localhost:3000/productsImage/2.webp"
+    },
+    {
+      "id": "3",
+      "name": "베이지 원피스",
+      "price": 69000,
+      "image": "http://localhost:3000/productsImage/3.webp"
+    },
+    {
+      "id": "4",
+      "name": "베이지 반바지",
+      "price": 21000,
+      "image": "http://localhost:3000/productsImage/4.webp"
+    },
+    {
+      "id": "5",
+      "name": "스트라이프 티셔츠",
+      "price": 29000,
+      "image": "http://localhost:3000/productsImage/5.webp"
+    },
+    {
+      "id": "6",
+      "name": "스트라이프 원피스",
+      "price": 49000,
+      "image": "http://localhost:3000/productsImage/6.webp"
+    },
+    {
+      "id": "7",
+      "name": "레드 체크 자켓",
+      "price": 155000,
+      "image": "http://localhost:3000/productsImage/7.webp"
+    }
+  ]
+}
