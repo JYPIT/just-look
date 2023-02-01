@@ -1,5 +1,4 @@
 import styles from './Search.module.css';
-import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import { useQuery } from '@tanstack/react-query';
