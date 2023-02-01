@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import { uploadImage } from '../api/uploader';
 import { addNewProduct } from '../api/firebase';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 export default function NewProduct() {
   const [product, setProduct] = useState({});
@@ -10,7 +11,15 @@ export default function NewProduct() {
   const [isUploading, setIsUploading] = useState(false);
   const [success, setSuccess] = useState();
 
-  const onChange = (e) => {
+  const queryClient = useQueryClient();
+  const addProduct = useMutation(
+    ({ product, url }) => addNewProduct(product, url),
+    {
+      onSuccess: () => queryClient.invalidateQueries(['product']),
+    }
+  );
+
+  const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === 'file') {
       setFile(files && files[0]);
@@ -22,18 +31,22 @@ export default function NewProduct() {
     });
   };
 
-  const onSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsUploading(true);
     uploadImage(file) //
       .then((url) => {
-        console.log(url);
-        addNewProduct(product, url).then(() => {
-          setSuccess('상품이 등록되었습니다.');
-          setTimeout(() => {
-            setSuccess(null);
-          }, 4000);
-        });
+        addProduct.mutate(
+          { product, url },
+          {
+            onSuccess: () => {
+              setSuccess('상품이 등록되었습니다.');
+              setTimeout(() => {
+                setSuccess(null);
+              }, 4000);
+            },
+          }
+        );
       })
       .finally(() => setIsUploading(false));
     setProduct({});
@@ -46,13 +59,13 @@ export default function NewProduct() {
       <div className={styles.preview}>
         {file && <img src={URL.createObjectURL(file)} alt='이미지 오류' />}
       </div>
-      <form className={styles.form} onSubmit={onSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <input
           type='file'
           name='file'
           accept='image/*'
           required
-          onChange={onChange}
+          onChange={handleChange}
         />
         <input
           type='text'
@@ -60,7 +73,7 @@ export default function NewProduct() {
           name='category'
           value={product.category ?? ''}
           required
-          onChange={onChange}
+          onChange={handleChange}
         />
         <input
           type='text'
@@ -68,7 +81,7 @@ export default function NewProduct() {
           name='title'
           value={product.title ?? ''}
           required
-          onChange={onChange}
+          onChange={handleChange}
         />
         <input
           type='text'
@@ -76,7 +89,7 @@ export default function NewProduct() {
           name='description'
           value={product.description ?? ''}
           required
-          onChange={onChange}
+          onChange={handleChange}
         />
         <input
           type='text'
@@ -84,7 +97,7 @@ export default function NewProduct() {
           name='price'
           value={product.price ?? ''}
           required
-          onChange={onChange}
+          onChange={handleChange}
         />
         <input
           type='text'
@@ -92,7 +105,7 @@ export default function NewProduct() {
           name='options'
           value={product.options ?? ''}
           required
-          onChange={onChange}
+          onChange={handleChange}
         />
         <button disabled={isUploading}>
           {isUploading ? '업로드 중...' : '상품 등록'}

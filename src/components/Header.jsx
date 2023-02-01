@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuthContext } from './context/AuthContext';
+import { useAuthContext } from '../context/AuthContext';
+import CartStatus from './CartStatus';
 import styles from './Header.module.css';
 import User from './User';
 
@@ -16,7 +17,6 @@ export default function Header() {
     e.preventDefault();
     naviagte('/search', { state: { text } });
   };
-  console.log(user);
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -45,7 +45,9 @@ export default function Header() {
             <Link to={`/${user.uid}/profile`} user={user}>
               <User user={user} />
             </Link>
-            <Link to={`/${user.uid}/cart`}>Cart</Link>
+            <Link to={`/${user.uid}/cart`}>
+              <CartStatus />
+            </Link>
           </>
         )}
       </nav>

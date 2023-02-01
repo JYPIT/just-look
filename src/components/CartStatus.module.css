@@ -1,0 +1,19 @@
+.cart {
+  position: relative;
+  display: flex;
+  font-size: xx-large;
+}
+
+.cart p {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  background-color: red;
+  text-align: center;
+  padding: 2px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 100%;
+  top: -3px;
+  right: -8px;
+}

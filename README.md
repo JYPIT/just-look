@@ -6,19 +6,21 @@ User
 - Logined User
 - Admin
 
-## Header
+## Home(Root)
 
-## Products(Root)
+### Header
 
-## Product Detail
+### Products
 
-## Cart
+#### Product Detail
 
-## Sign up
+### Sign up
 
-## Login
+### Login
 
-## manageProducts
+### Cart
 
-- product create
+### Admin Page
+
+- product upload
 - product delete

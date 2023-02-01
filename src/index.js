@@ -59,11 +59,11 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: '/:userId/profile',
+        path: ':userId/profile',
         element: <Profile />,
       },
       {
-        path: '/:userId/cart',
+        path: ':userId/cart',
         element: <Cart />,
       },
     ],

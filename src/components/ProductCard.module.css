@@ -1,4 +1,5 @@
 .productCard {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,6 +13,15 @@
   width: 100%;
   height: 18rem;
 }
+.heart {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  opacity: 0.3;
+}
+.heart:hover {
+  opacity: 1;
+}
 
 .title {
   width: 200px;
@@ -21,10 +31,16 @@
   text-align: center;
 }
 
-.option {
+.btn {
   display: flex;
-  gap: 30px;
+  justify-content: center;
+  width: 100%;
 }
-.option li:hover {
-  color: red;
+
+.btn button {
+  width: 100%;
+  cursor: pointer;
+}
+.btn button:hover {
+  background-color: lightcoral;
 }

@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
 import { getProducts } from '../api/firebase';
 import Banner from '../components/Banner';
 import ProductCard from '../components/ProductCard';
@@ -29,7 +30,7 @@ export default function Home() {
             <div className={styles.grid}>
               {products?.map((product) => (
                 <div className={styles.gridItem} key={product.id}>
-                  <ProductCard product={product} />
+                  <ProductCard product={product} set />
                 </div>
               ))}
             </div>

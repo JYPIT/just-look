@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
 import Banner from '../components/Banner';
 import ProductCard from '../components/ProductCard';
 import styles from './Products.module.css';
