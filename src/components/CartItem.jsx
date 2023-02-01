@@ -1,20 +1,21 @@
-import { addOrUpdateToCart, removeFromCart } from '../api/firebase';
+import useCart from '../hooks/useCart';
 import styles from './CartItem.module.css';
 export default function CartItem({
-  uid,
   product,
   product: { id, image, title, option, price, quantity },
 }) {
-  const handleRemove = () => {
-    removeFromCart(uid, id);
-  };
+  const { addOrUpdateItem, removeItem } = useCart();
+
   const handleBtnPlus = () => {
-    if (quantity > 10) return alert('더이상 추가할 수 없습니다.');
-    addOrUpdateToCart(uid, { ...product, quantity: quantity + 1 });
+    if (quantity > 9) return alert('더이상 추가할 수 없습니다.');
+    addOrUpdateItem.mutate({ ...product, quantity: quantity + 1 });
   };
   const handleBtnMinus = () => {
     if (quantity < 2) return;
-    addOrUpdateToCart(uid, { ...product, quantity: quantity - 1 });
+    addOrUpdateItem.mutate({ ...product, quantity: quantity - 1 });
+  };
+  const handleRemove = () => {
+    removeItem.mutate(id);
   };
   return (
     <div className={styles.container}>

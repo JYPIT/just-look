@@ -3,21 +3,17 @@ import { useState } from 'react';
 import { getProducts } from '../api/firebase';
 import Banner from '../components/Banner';
 import ProductCard from '../components/ProductCard';
+import useProducts from '../hooks/useProducts';
 import styles from './Home.module.css';
 
 export default function Home() {
-  // Mock Data
-
-  // const { data: products, isLoading } = useQuery(['products'], async () => {
-  //   return await fetch('data/products.json')
-  //     .then((res) => res.json())
-  //     .then((data) => data.items);
+  // const { data: products, isLoading } = useQuery(['products'], () => {
+  //   return getProducts();
   // });
 
-  const { data: products, isLoading } = useQuery(['products'], () => {
-    return getProducts();
-  });
-
+  const {
+    productsQuery: { isLoading, error, data: products },
+  } = useProducts();
   return (
     <div className={styles.container}>
       <Banner />

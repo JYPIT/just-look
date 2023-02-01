@@ -17,8 +17,6 @@ import Profile from './pages/Profile';
 import AdminPage from './pages/AdminPage';
 import ProtectedRoute from './pages/ProtectedRoute';
 
-const queryClient = new QueryClient();
-
 const router = createBrowserRouter([
   {
     path: '/',
@@ -31,7 +29,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: 'adminPage',
+        path: '/adminPage',
         element: (
           <ProtectedRoute requireAdmin>
             <AdminPage />
@@ -39,31 +37,31 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: 'products',
+        path: '/products',
         element: <Products />,
       },
       {
-        path: 'products/:productId',
+        path: '/products/:productId',
         element: <ProductDetail />,
       },
       {
-        path: 'search',
+        path: '/search',
         element: <Search />,
       },
       {
-        path: 'signup',
+        path: '/signup',
         element: <Signup />,
       },
       {
-        path: 'login',
+        path: '/login',
         element: <Login />,
       },
       {
-        path: ':userId/profile',
+        path: '/:userId/profile',
         element: <Profile />,
       },
       {
-        path: ':userId/cart',
+        path: '/:userId/cart',
         element: <Cart />,
       },
     ],
@@ -73,7 +71,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <QueryClientProvider client={queryClient}>
+  <React.StrictMode>
     <RouterProvider router={router} />
-  </QueryClientProvider>
+  </React.StrictMode>
 );
