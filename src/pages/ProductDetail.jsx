@@ -8,7 +8,7 @@ export default function ProductDetail() {
 
   const {
     state: {
-      product: { id, title, image, description, category, price, options },
+      product: { id, title, image, description, price, options },
     },
   } = useLocation();
 

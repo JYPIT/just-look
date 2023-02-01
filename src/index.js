@@ -11,7 +11,6 @@ import Cart from './pages/Cart';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
 import Search from './pages/Search';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import AdminPage from './pages/AdminPage';

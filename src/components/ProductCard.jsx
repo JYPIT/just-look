@@ -1,19 +1,15 @@
 import styles from './ProductCard.module.css';
-import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductCard({ product }) {
   const { id, title, price, image } = product;
-  const [cart, setCart] = useState([]);
   const navigate = useNavigate();
   const onClickProduct = () => {
     navigate(`/products/${id}`, { state: { product } });
   };
-  const onClickCartBtn = () => {
-    setCart([...cart, product]);
-  };
+
   const onClickBuyBtn = () => {
-    alert('구매 페이지로 이동합니다...');
+    alert('준비중입니다...');
   };
 
   return (
@@ -27,7 +23,6 @@ export default function ProductCard({ product }) {
         </span>
       </div>
       <div className={styles.btn}>
-        <button onClick={onClickCartBtn}>장바구니 추가</button>
         <button onClick={onClickBuyBtn}>구매하기</button>
       </div>
     </>

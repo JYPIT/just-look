@@ -1,6 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
-import { useState } from 'react';
-import { getProducts } from '../api/firebase';
 import Banner from '../components/Banner';
 import ProductCard from '../components/ProductCard';
 import useProducts from '../hooks/useProducts';
@@ -12,7 +9,7 @@ export default function Home() {
   // });
 
   const {
-    productsQuery: { isLoading, error, data: products },
+    productsQuery: { isLoading, data: products },
   } = useProducts();
   return (
     <div className={styles.container}>
