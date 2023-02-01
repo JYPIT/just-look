@@ -7,7 +7,6 @@ export default function ProductCard({ product }) {
   const onClickProduct = () => {
     navigate(`/products/${id}`, { state: { product } });
   };
-
   const onClickBuyBtn = () => {
     alert('준비중입니다...');
   };
